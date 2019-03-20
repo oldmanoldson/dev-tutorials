@@ -59,5 +59,4 @@ for i in range(num_simulations):
     all_stats.append([df['Sales'].sum().round(0), df['Commission_Amount'].sum().round(0), df['Sales_Target'].sum().round(0)])
 
 results_df = pd.DataFrame.from_records(all_stats, columns = ['Sales', 'Commission_Amount', 'Sales_Target'])
-results_df.describe().style.format('{:,}')
-print(results_df)
+print(results_df.describe().style.format('{:,}'))
