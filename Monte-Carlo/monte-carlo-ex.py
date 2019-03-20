@@ -60,3 +60,4 @@ for i in range(num_simulations):
 
 results_df = pd.DataFrame.from_records(all_stats, columns = ['Sales', 'Commission_Amount', 'Sales_Target'])
 results_df.describe().style.format('{:,}')
+print(results_df)
