@@ -1,7 +1,7 @@
 
 <html>
     <head>
-      <title>A Leaflet map!</title>
+      <title>EVMAXX Map</title>
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
       integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
       crossorigin=""/>
@@ -31,7 +31,7 @@
       .addTo(map);
       
       // grab geojson data
-      $.getJson("https://raw.githubusercontent.com/oldmanoldson/dev-tutorials/javascript/stations.geojson",function(data){
+      $.getJSON("https://raw.githubusercontent.com/oldmanoldson/dev-tutorials/javascript/stations.geojson",function(data){
         L.geoJson(data).addTo(map);
       });
     
