@@ -29,10 +29,32 @@
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'})
       .addTo(map);
+
+      
       
       // grab geojson data
       $.getJSON("https://raw.githubusercontent.com/oldmanoldson/dev-tutorials/javascript/stations.geojson",function(data){
-        L.geoJson(data).addTo(map);
+        // This will be run when L.geoJSON creates the point layer from the GeoJSON data.
+        function createCircleMarker(feature, latlng){
+        // Change the values of these options to change the symbol's appearance
+        let options = {
+          radius: 8,
+          fillColor: "navy",
+          color: "black",
+          weight: 1,
+          opacity: 1,
+          fillOpacity: 0.8
+        }
+        var circle = L.circleMarker(latlng, options);
+        return circle.bindPopup('<b>'+feature.properties.LocationTitle+'</b>'
+        +'<br/>'+'<b>Connection Type: </b>'+feature.properties.ConnectionType
+        +'<br/>'+'<b>Number of Points: </b>'+feature.properties.NumberOfPoints
+        +'<br/>'+'<b>Usage Type: </b>'+feature.properties.UsageType
+        +'<br/>'+'<b>Status Type: </b>'+feature.properties.StatusType)
+      }
+        L.geoJson(data, {
+          pointToLayer: createCircleMarker
+        }).addTo(map);
       });
     
       </script>
