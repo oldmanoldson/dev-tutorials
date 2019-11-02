@@ -16,7 +16,10 @@
 			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 			  crossorigin="anonymous"></script>
       <style>
-        #mapid{ height: 100% }
+        #mapid{ 
+          top: 20%;
+          height: 80%
+        }
       </style>
     </head>
     <body>
@@ -58,7 +61,17 @@
           +'<br/>'+'<b>Connection Type: </b>'+feature.properties.ConnectionType
           +'<br/>'+'<b>Number of Points: </b>'+feature.properties.NumberOfPoints
           +'<br/>'+'<b>Usage Type: </b>'+feature.properties.UsageType
-          +'<br/>'+'<b>Status Type: </b>'+feature.properties.StatusType);
+          +'<br/>'+'<b>Status Type: </b>'+feature.properties.StatusType
+          +'<br/>'+'<b>Reserve: </b>Enroute ('+Math.floor(Math.random()*30)+' min)'
+          +'<br/>'+'9:00AM'
+          +' '+'10:00AM'
+          +' '+'11:00AM'
+          +' '+'12:00PM'
+          +' '+'1:00PM'
+          +' '+'2:00PM'
+          +' '+'3:00PM'
+          +' '+'4:00PM'
+          +' '+'5:00PM');
           return circle
         }
         var stations = L.geoJson(data, {
