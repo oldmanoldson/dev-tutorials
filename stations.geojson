@@ -5500,41 +5500,6 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [ 122.804252,38.672352 ]
-    },
-    "properties": {
-    "ID":130999,
-    "UUID":"329DCA77-D9C2-4128-8164-FF35AC379956",
-    "LocationTitle":"Silver Oak Alexander Valley",
-    "AddressLine1":"7300 Hwy 128",
-    "AddressLine2":"",
-    "Town":"Healdsburg",
-    "StateOrProvince":"California",
-    "Postcode":"95448",
-    "Country":"United States",
-    "Distance":"",
-    "DistanceUnit":"0",
-    "Addr_ContactTelephone1":"(707) 942-7082",
-    "Addr_ContactTelephone2":"",
-    "Addr_ContactEmail":"",
-    "Addr_AccessComments":"",
-    "Addr_GeneralComments":"",
-    "Addr_RelatedURL":"",
-    "ConnectionType":"Tesla (Model S onwards);",
-    "ChargerType":"",
-    "UsageType":"Public",
-    "NumberOfPoints":2,
-    "GeneralComments":"2 Tesla Connectors, up to 6kW.Available for customers. Self park.",
-    "DateLastConfirmed":"",
-    "StatusType":"Operational",
-    "DateLastStatusUpdate":"8/28/2019 19:54",
-    "DateCreated":"8/28/2019 19:54"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
        "coordinates":  [ -85.512131,36.166916 ]
     },
     "properties": {
@@ -7594,41 +7559,6 @@
     "StatusType":"Unknown",
     "DateLastStatusUpdate":"7/23/2019 5:38",
     "DateCreated":"7/23/2019 5:38"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
-       "coordinates":  [ 28.67309952,14.59939957 ]
-    },
-    "properties": {
-    "ID":129495,
-    "UUID":"764DF094-C3C6-4378-8A43-8045544E8705",
-    "LocationTitle":"Greenlots - 182016",
-    "AddressLine1":"1886 32ND AVE",
-    "AddressLine2":"",
-    "Town":"SAN FRANCISCO",
-    "StateOrProvince":"CA",
-    "Postcode":"94122",
-    "Country":"United States",
-    "Distance":"",
-    "DistanceUnit":"0",
-    "Addr_ContactTelephone1":"855-900-7584",
-    "Addr_ContactTelephone2":"",
-    "Addr_ContactEmail":"",
-    "Addr_AccessComments":"24 hours daily",
-    "Addr_GeneralComments":"",
-    "Addr_RelatedURL":"http://greenlots.com/",
-    "ConnectionType":"J1772;",
-    "ChargerType":"",
-    "UsageType":"Public",
-    "NumberOfPoints":null,
-    "GeneralComments":"",
-    "DateLastConfirmed":"",
-    "StatusType":"Unknown",
-    "DateLastStatusUpdate":"7/21/2019 11:43",
-    "DateCreated":"7/21/2019 11:43"
     }
   },
   {

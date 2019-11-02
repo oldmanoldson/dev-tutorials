@@ -5,9 +5,12 @@
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
       integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
       crossorigin=""/>
+      <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+      <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />    
       <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
       integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
       crossorigin=""></script>
+      <script type='text/javascript' src='https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js'></script>
       <script
 			  src="http://code.jquery.com/jquery-3.4.1.min.js"
 			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -36,27 +39,36 @@
       $.getJSON("https://raw.githubusercontent.com/oldmanoldson/dev-tutorials/javascript/stations.geojson",function(data){
         // This will be run when L.geoJSON creates the point layer from the GeoJSON data.
         function createCircleMarker(feature, latlng){
-        // Change the values of these options to change the symbol's appearance
-        let options = {
-          radius: 8,
-          fillColor: "navy",
-          color: "black",
-          weight: 1,
-          opacity: 1,
-          fillOpacity: 0.8
+          // Change the values of these options to change the symbol's appearance
+          var customColor = "green";
+          if (feature.properties.UsageType == "Public")
+            customColor = "navy";
+          else if (feature.properties.UsageType == "Private")
+            customColor = "red";
+
+          let options = {
+            radius: 8,
+            fillColor: customColor,
+            color: "black",
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.8
+          }
+          var circle = L.circleMarker(latlng, options).bindPopup('<b>'+feature.properties.LocationTitle+'</b>'
+          +'<br/>'+'<b>Connection Type: </b>'+feature.properties.ConnectionType
+          +'<br/>'+'<b>Number of Points: </b>'+feature.properties.NumberOfPoints
+          +'<br/>'+'<b>Usage Type: </b>'+feature.properties.UsageType
+          +'<br/>'+'<b>Status Type: </b>'+feature.properties.StatusType);
+          return circle
         }
-        var circle = L.circleMarker(latlng, options);
-        return circle.bindPopup('<b>'+feature.properties.LocationTitle+'</b>'
-        +'<br/>'+'<b>Connection Type: </b>'+feature.properties.ConnectionType
-        +'<br/>'+'<b>Number of Points: </b>'+feature.properties.NumberOfPoints
-        +'<br/>'+'<b>Usage Type: </b>'+feature.properties.UsageType
-        +'<br/>'+'<b>Status Type: </b>'+feature.properties.StatusType)
-      }
-        L.geoJson(data, {
+        var stations = L.geoJson(data, {
           pointToLayer: createCircleMarker
-        }).addTo(map);
+        });
+        var clusters = L.markerClusterGroup();
+        clusters.addLayer(stations);
+        map.addLayer(clusters)
       });
-    
+
       </script>
     </body>
     </html>
