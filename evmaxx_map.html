@@ -18,7 +18,10 @@
 			  crossorigin="anonymous"></script>
       <style>
         #mapid{ 
-          height: 550px
+          height: 650px;
+          z-index: 0;
+          left: 20px;
+          width: 98%;
         }
         p.b{
           font-style: italic;
@@ -105,11 +108,20 @@
         <form action="/action_page.php" class="form-container">
           <h1>Register</h1>
 
+          <label for="name"><b>Name</b></label>
+          <input type="text" placeholder="Enter Name" name="name" required>
+
           <label for="email"><b>Email</b></label>
           <input type="text" placeholder="Enter Email" name="email" required>
 
           <label for="psw"><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="psw" required>
+
+          <label for="evcar"><b>Electric Vehicle Make</b></label>
+          <input type="text" placeholder="Enter Make" name="evcar" required>
+
+          <label for="evmodel"><b>Electric Vehicle Model</b></label>
+          <input type="text" placeholder="Enter Model" name="evmodel" required>
 
           <button type="submit" class="btn">Register</button>
           <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
