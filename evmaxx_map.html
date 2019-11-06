@@ -141,7 +141,7 @@
       }  
 
       // initialize the map
-      var map = L.map('mapid').setView([42.0285, -93.65], 4);
+      var map = L.map('mapid').setView([42.0285, -93.65], 4)
 
       // load a tile layer
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -172,16 +172,16 @@
           +'<br/>'+'<b>Number of Points: </b>'+feature.properties.NumberOfPoints
           +'<br/>'+'<b>Usage Type: </b>'+feature.properties.UsageType
           +'<br/>'+'<b>Status Type: </b>'+feature.properties.StatusType
-          +'<br/>'+'<b>Reserve: </b>Enroute ('+Math.floor(Math.random()*30)+' min)'
-          +'<br/>'+'9:00AM'
-          +' '+'10:00AM'
-          +' '+'11:00AM'
-          +' '+'12:00PM'
-          +' '+'1:00PM'
-          +' '+'2:00PM'
-          +' '+'3:00PM'
-          +' '+'4:00PM'
-          +' '+'5:00PM');
+          +'<br/>'+'<b>Reserve: </b><span id="time"><a href="#">Enroute ('+Math.floor(Math.random()*30)+' min)</a>'
+          +'<br/>'+'<a href="#">9:00AM</a>'
+          +' '+'<a href="#">10:00AM</a>'
+          +' '+'<a href="#">11:00AM</a>'
+          +' '+'<a href="#">12:00PM</a>'
+          +' '+'<a href="#">1:00PM</a>'
+          +' '+'<a href="#">2:00PM</a>'
+          +' '+'<a href="#">3:00PM</a>'
+          +' '+'<a href="#">4:00PM</a>'
+          +' '+'<a href="#">5:00PM</span>').on("popupopen", ()=>document.getElementById("time").addEventListener("click",()=>alert("Reservation Confirmed!")));
           return circle
         }
         var stations = L.geoJson(data, {
@@ -189,7 +189,7 @@
         });
         var clusters = L.markerClusterGroup();
         clusters.addLayer(stations);
-        map.addLayer(clusters)
+        map.addLayer(clusters);
       });
 
       </script>
