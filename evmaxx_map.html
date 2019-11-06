@@ -30,7 +30,7 @@
         * {box-sizing: border-box;}
 
         /* Button used to open the contact form - fixed at the top of the page */
-        .open-button {
+        .open-button1 {
           background-color: #555;
           color: white;
           padding: 16px 20px;
@@ -38,7 +38,7 @@
           cursor: pointer;
           opacity: 0.8;
           position: fixed;
-          top: 23px;
+          top: 80px;
           right: 28px;
           width: 280px;
         }
@@ -96,13 +96,28 @@
         .form-container .btn:hover, .open-button:hover {
           opacity: 1;
         }
+
+        /* Add login button */
+        .open-button2 {
+          background-color: #555;
+          color: white;
+          padding: 16px 20px;
+          border: none;
+          cursor: pointer;
+          opacity: 0.8;
+          position: fixed;
+          top: 23px;
+          right: 28px;
+          width: 280px;
+        }
       </style>
     </head>
     <body>
       <p style="font-size:40px">EVMAXX</p>
       <p class="b" style="font-size:20px">Make your charging station reservation today</p>
 
-      <button class="open-button" onclick="openForm()">Register</button>
+      <button class="open-button1" onclick="openForm()">Register</button>
+      <button class="open-button2" onclick="openLogin()">Login</button>
 
       <div class="form-popup" id="myForm">
         <form action="/action_page.php" class="form-container">
@@ -127,6 +142,21 @@
           <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
         </form>
       </div>
+
+      <div class="form-popup" id="myLogin">
+        <form action="/action_page.php" class="form-container">
+          <h1>Login</h1>
+
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required>
+
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+
+          <button type="submit" class="btn">Login</button>
+          <button type="button" class="btn cancel" onclick="closeLogin()">Close</button>
+        </form>
+      </div>
     
       <div id="mapid"></div>
 
@@ -138,7 +168,15 @@
 
       function closeForm() {
         document.getElementById("myForm").style.display = "none";
-      }  
+      }
+
+      function openLogin() {
+        document.getElementById("myLogin").style.display = "block";
+      }
+
+      function closeLogin() {
+        document.getElementById("myLogin").style.display = "none";
+      }
 
       // initialize the map
       var map = L.map('mapid').setView([42.0285, -93.65], 4)
