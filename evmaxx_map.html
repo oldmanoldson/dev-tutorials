@@ -37,7 +37,8 @@
           border: none;
           cursor: pointer;
           opacity: 0.8;
-          position: fixed;
+          /* position: fixed; */
+          margin: 5px 0;
           top: 80px;
           right: 28px;
           width: 280px;
@@ -105,57 +106,71 @@
           border: none;
           cursor: pointer;
           opacity: 0.8;
-          position: fixed;
+          /* position: fixed; */
+          margin: 5px 0;
           top: 23px;
           right: 28px;
+          width: 280px;
+        }
+        .header-container {
+          display: flex;
+          justify-content: space-between;
+        }
+        .header-btns {
           width: 280px;
         }
       </style>
     </head>
     <body>
-      <p style="font-size:40px">EVMAXX</p>
-      <p class="b" style="font-size:20px">Make your charging station reservation today</p>
-
-      <button class="open-button1" onclick="openForm()">Register</button>
-      <button class="open-button2" onclick="openLogin()">Login</button>
-
-      <div class="form-popup" id="myForm">
-        <form action="/action_page.php" class="form-container">
-          <h1>Register</h1>
-
-          <label for="name"><b>Name</b></label>
-          <input type="text" placeholder="Enter Name" name="name" required>
-
-          <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required>
-
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
-
-          <label for="evcar"><b>Electric Vehicle Make</b></label>
-          <input type="text" placeholder="Enter Make" name="evcar" required>
-
-          <label for="evmodel"><b>Electric Vehicle Model</b></label>
-          <input type="text" placeholder="Enter Model" name="evmodel" required>
-
-          <button type="submit" class="btn">Register</button>
-          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-        </form>
-      </div>
-
-      <div class="form-popup" id="myLogin">
-        <form action="/action_page.php" class="form-container">
-          <h1>Login</h1>
-
-          <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required>
-
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
-
-          <button type="submit" class="btn">Login</button>
-          <button type="button" class="btn cancel" onclick="closeLogin()">Close</button>
-        </form>
+      <div class="header-container">
+        <div>
+          <p style="font-size:40px">EVMAXX</p>
+          <p class="b" style="font-size:20px">Make your charging station reservation today</p>
+        </div>
+  
+        <div class="header-btns">
+          <button class="open-button1" onclick="openForm()">Register</button>
+          <button class="open-button2" onclick="openLogin()">Login</button>
+    
+          <div class="form-popup" id="myForm">
+            <form action="/action_page.php" class="form-container">
+              <h1>Register</h1>
+    
+              <label for="name"><b>Name</b></label>
+              <input type="text" placeholder="Enter Name" name="name" required>
+    
+              <label for="email"><b>Email</b></label>
+              <input type="text" placeholder="Enter Email" name="email" required>
+    
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" required>
+    
+              <label for="evcar"><b>Electric Vehicle Make</b></label>
+              <input type="text" placeholder="Enter Make" name="evcar" required>
+    
+              <label for="evmodel"><b>Electric Vehicle Model</b></label>
+              <input type="text" placeholder="Enter Model" name="evmodel" required>
+    
+              <button type="submit" class="btn">Register</button>
+              <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+          </div>
+    
+          <div class="form-popup" id="myLogin">
+            <form action="/action_page.php" class="form-container">
+              <h1>Login</h1>
+    
+              <label for="email"><b>Email</b></label>
+              <input type="text" placeholder="Enter Email" name="email" required>
+    
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" required>
+    
+              <button type="submit" class="btn">Login</button>
+              <button type="button" class="btn cancel" onclick="closeLogin()">Close</button>
+            </form>
+          </div>
+        </div>
       </div>
     
       <div id="mapid"></div>
