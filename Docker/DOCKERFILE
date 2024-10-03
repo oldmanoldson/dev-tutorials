@@ -1,0 +1,32 @@
+# set the base image
+FROM ubuntu
+
+# set python image
+FROM python:3
+
+# run update and setup functions
+RUN apt-get update && apt-get -y upgrade
+RUN apt-get install -y build-essential python-dev-is-python3
+RUN apt-get install -y python-is-python3 2to3
+RUN pip install pip --upgrade
+
+# make the working directory
+RUN mkdir /analysis
+
+# set the working directory
+WORKDIR /analysis
+
+# add to working directory
+ADD . /analysis/
+
+# add python libraries
+ADD requirements.txt /analysis/
+
+# make notebooks directory
+RUN mkdir /notebooks
+
+# run the requirements.txt to pip install
+RUN pip install -r requirements.txt
+
+# run docker container with Jupyter Notebook
+CMD jupyter notebook --allow-root --no-browser --ip 0.0.0.0 --port 8888 /notebooks
