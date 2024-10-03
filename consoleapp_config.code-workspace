@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "dev-tutorials",
+			"path": "."
+		}
+	],
+	"settings": {
+		"dotnet.defaultSolution": "ConsoleApp1.sln"
+	}
+}
