@@ -22,4 +22,3 @@ xlrd
 xmltojson
 bs4
 requests
-jupyter
